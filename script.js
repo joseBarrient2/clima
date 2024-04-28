@@ -65,8 +65,8 @@ function procesarDatos(arregloClima){
 }
 
 function dataError(error){
-   //console.log(erro);
+   //console.log(error);
    boxResult.innerHTML = `<div class="error">
-   ${error}
+   <p>ingrese un dato valido<p>
    </div>`;
 }
