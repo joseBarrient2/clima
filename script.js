@@ -16,7 +16,7 @@ async function buscarClima(){
     boxResult.appendChild(img);
     try{
         //console.log(ciudad.value);
-    const url = await fetch(`https://weather-api-t17v.onrender.com/weather/${ciudad.value}`);
+    const url = await fetch(`https://weather-api-t17v.onrender.com/weather/${ciudad.value}`,{mode : "no-cors"});
     const data = await url.json(); 
     //console.log(data);
     procesarDatos(data);
