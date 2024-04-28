@@ -1,24 +1,27 @@
-const ciudad = document.querySelector('#elijePais');
+const ciudad = document.getElementById('elijePais');
 const boton = document.querySelector('.buscarPais');
 const boxResult = document.querySelector('.datosClima');
 
 const dia = new Date();
 const arregloDias = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sábado'];
 const xday = dia.getDay();
-//console.log(xday);
+
+
 boton.addEventListener('click',buscarClima);
 
 async function buscarClima(){
+    
     boxResult.innerHTML = '';
     let img = document.createElement('img');
     img.classList.add('cargador');
     img.src = 'loader.gif';
     boxResult.appendChild(img);
+    
     try{
-        //console.log(ciudad.value);
-    const url = await fetch(`https://weather-api-t17v.onrender.com/weather/${ciudad.value}`,{mode : "no-cors"});
+    const link = `https://weather-api-t17v.onrender.com/weather/${ciudad.value}`;
+    console.log(link);
+    const url = await fetch(link);
     const data = await url.json(); 
-    //console.log(data);
     procesarDatos(data);
 
     }
